@@ -13,18 +13,36 @@ function App() {
   // ];
 
   const [todo_List, settodo_List] = useState([
-  // example of how is use state is written and used
-    { input: "todo 1-v1", complete: true },
-    { input: "todo 2-v2", complete: false },
+    /*
+    - this is an example of useState and how it is implemented
+    - the todo_list is the todo and settodo_list is a setter function that can be called to add todo 'need to learn more '
+    - 
+    */
+    { input: "go complete the todo project", complete: false },
+    { input: "start using react", complete: true },
   ]);
 
+  function handleaddtodo(newtodo) {
+    // this is used to add todo , we cant just add value to use state as it is immutable so we create a newone with all the value and append new value to it
+    const newTodoList = [...todo_List, { input: newtodo, complete: false }];
+    console.log("todo here")
+    // settodo_list is used to update the already created use state to the newtodo array with new todo appended to it
+    settodo_List(newTodoList);
+    
+  }
+  function handleedittodo() {
+    
+  }
+  function handledeletetodo() {
+    
+  }
 
   return (
     <>
       <Header todos={todo_List} />
       <TabHeader todos={todo_List} />
       <Todolist todos={todo_List} />
-      <Todoinput />
+      <Todoinput handleaddtodo={handleaddtodo} />
     </>
   );
 }
