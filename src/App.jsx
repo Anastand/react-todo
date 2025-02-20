@@ -31,7 +31,15 @@ function App() {
     // settodo_list is used to update the already created use state to the newtodo array with new todo appended to it
     settodo_List(newTodoList);
   }
-  function handleEditTodo() {}
+  function handleEditTodo(index) {
+    let newtodoedited = [...todo_List];
+    let completedtodomodify = todo_List[index];
+    // completedtodomodify.complete = true;
+    completedtodomodify["complete"] = true;
+    newtodoedited[index] = completedtodomodify;
+    settodo_List(newtodoedited);
+  }
+
   function handleDeleteTodo(index) {
     let newtodoafterdeletion = todo_List.filter((val, valindex) => {
       return valindex != index;
@@ -48,6 +56,7 @@ function App() {
         todos={todo_List}
       />
       <Todolist
+        handleEditTodo={handleEditTodo}
         handleDeleteTodo={handleDeleteTodo}
         selectedTab={selectedTab}
         todos={todo_List}

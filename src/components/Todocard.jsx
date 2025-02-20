@@ -1,10 +1,15 @@
 export default function Todocard(props) {
-  const { todo, handleDeleteTodo, todoindex } = props;
+  const { todo, handleDeleteTodo, todoindex, handleEditTodo } = props;
   console.log(todo);
   return (
     <div className="card todo-item">
       <p>{todo.input}</p>
-      <button disabled={todo.complete}>
+      <button
+        onClick={() => {
+          handleEditTodo(todoindex);
+        }}
+        disabled={todo.complete}
+      >
         <h6>DONE</h6>
       </button>
       <button
