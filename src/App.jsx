@@ -22,6 +22,8 @@ function App() {
     { input: "start using react", complete: true },
   ]);
 
+  const [selectedTab, setSelectedTab] = useState("Open");
+
   function handleaddtodo(newtodo) {
     // this is used to add todo , we cant just add value to use state as it is immutable so we create a newone with all the value and append new value to it
     const newTodoList = [...todo_List, { input: newtodo, complete: false }];
@@ -34,8 +36,18 @@ function App() {
   return (
     <>
       <Header todos={todo_List} />
-      <TabHeader todos={todo_List} />
-      <Todolist todos={todo_List} />
+
+      <TabHeader
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        todos={todo_List}
+      />
+      <Todolist
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        todos={todo_List}
+      />
+
       <Todoinput handleaddtodo={handleaddtodo} />
     </>
   );

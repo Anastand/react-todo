@@ -1,5 +1,5 @@
 export function TabHeader(props) {
-  const { todos } = props;
+  const { todos, selectedTab, setSelectedTab } = props;
   const tabs = ["All", "Open", "Completed"];
   return (
     <nav>
@@ -13,7 +13,13 @@ export function TabHeader(props) {
           todonumber = todos.filter((val) => val.complete).length;
         }
         return (
-          <button key={tabsindex} className="tab-button">
+          <button
+            onClick={()=>setSelectedTab(tabs)}
+            key={tabsindex}
+            className={
+              "tab-button " + (tabs == selectedTab ? "tab-selected" : " ")
+            }
+          >
             <h3>
               {tabs}
               <span> ({todonumber}) </span>
@@ -21,6 +27,7 @@ export function TabHeader(props) {
           </button>
         );
       })}
+      <br />
     </nav>
   );
 }

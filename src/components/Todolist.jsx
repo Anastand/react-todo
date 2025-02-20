@@ -2,8 +2,8 @@ import Todocard from "./Todocard";
 import Todoinput from "./Todoinput";
 
 export default function Todolist(props) {
-  const { todos } = props;
-  const tab = "All";
+  const { todos, selectedTab, setSelectedTab } = props;
+  const tab = selectedTab;
   const filteredtodos =
     tab == "All"
       ? todos
