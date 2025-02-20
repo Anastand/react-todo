@@ -25,18 +25,12 @@ function App() {
   function handleaddtodo(newtodo) {
     // this is used to add todo , we cant just add value to use state as it is immutable so we create a newone with all the value and append new value to it
     const newTodoList = [...todo_List, { input: newtodo, complete: false }];
-    console.log("todo here")
+    console.log("todo here");
     // settodo_list is used to update the already created use state to the newtodo array with new todo appended to it
     settodo_List(newTodoList);
-    
   }
-  function handleedittodo() {
-    
-  }
-  function handledeletetodo() {
-    
-  }
-
+  function handleEditTodo() {}
+  function handleDeleteTodo() {}
   return (
     <>
       <Header todos={todo_List} />
