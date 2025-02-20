@@ -32,7 +32,12 @@ function App() {
     settodo_List(newTodoList);
   }
   function handleEditTodo() {}
-  function handleDeleteTodo() {}
+  function handleDeleteTodo(index) {
+    let newtodoafterdeletion = todo_List.filter((val, valindex) => {
+      return valindex != index;
+    });
+    settodo_List(newtodoafterdeletion);
+  }
   return (
     <>
       <Header todos={todo_List} />
@@ -43,8 +48,8 @@ function App() {
         todos={todo_List}
       />
       <Todolist
+        handleDeleteTodo={handleDeleteTodo}
         selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
         todos={todo_List}
       />
 
