@@ -8,7 +8,9 @@ This is a simple Todo application built with React. It allows users to add, dele
 - [x] make basic interface for the Todo 
 - [x] Filter ToDO
 - [x] make card section
-- [x] start using {useState}
-- [ ]  
+- [x] use useStae
+- [ ] make the tab header functional
+- [ ] add editing functionality 
+- [ ] add delete functionality
 
 
