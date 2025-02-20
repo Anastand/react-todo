@@ -20,8 +20,8 @@ export default function Todoinput(props) {
       {/* button click require to put in {} and also need arroe function to use js */}
       <button
         onClick={() => {
-          if (!inputvalue) {//github.com/Anastand/WEB-DEV-PORTFOLIO
-          https: return;
+          if (!inputvalue) {
+            return;
           }
           handleaddtodo(inputvalue);
         }}
