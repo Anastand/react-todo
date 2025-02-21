@@ -43,11 +43,19 @@ function App() {
   }
   function savetodoappdata(current) {
     localStorage.setItem("todo-app", JSON.stringify({ todo_List: current }));
+    /* 
+    here more understanding is required
+    - localstoage.setitem takes key value pair , "todo-app" is the key and { todo_List: current } is the value 
+    - local storage only stores the the value in string form thus JSON.stringify is called to do that 
+    - when the savetodoappdata is called the value of todo is stored in current which is later soted in the local storage
+    */
   }
   useEffect(() => {
     if (!localStorage || !localStorage.getItem("todo-app")) {
       return;
+      // checks
     }
+    // getting the stored data from savetodoappdata function -> which saved the data in todo-app and parsing it as the todo is when stored requires to be in the string and when storing inthe todo_list needs to be in the json format
     let db = JSON.parse(localStorage.getItem("todo-app"));
     settodo_List(db.todo_List);
   }, []);

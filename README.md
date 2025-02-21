@@ -12,5 +12,7 @@ This is a simple Todo application built with React. It allows users to add, dele
 - [ ] make the tab header functional
 - [ ] add editing functionality 
 - [ ] add delete functionality
-
-
+### Things to learn more 
+- [ ] how does local storage works 
+- [ ] json parsing and stringify , and more about objects
+- [ ] 
