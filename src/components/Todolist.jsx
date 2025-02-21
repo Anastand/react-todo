@@ -16,7 +16,7 @@ export default function Todolist(props) {
         return (
           <Todocard
             key={todoindex}
-            todoindex={todoindex}
+            todoindex={todos.findIndex(val => val.input ==todos.input)}
             {...props}
             todo={todo}
           />

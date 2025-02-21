@@ -27,7 +27,6 @@ function App() {
   function handleEditTodo(index) {
     let newtodoedited = [...todo_List];
     let completedtodomodify = todo_List[index];
-    // completedtodomodify.complete = true;
     completedtodomodify["complete"] = true;
     newtodoedited[index] = completedtodomodify;
     settodo_List(newtodoedited);
