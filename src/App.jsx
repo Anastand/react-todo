@@ -2,16 +2,8 @@ import { Header } from "./components/Header";
 import { TabHeader } from "./components/TabHeader";
 import Todoinput from "./components/Todoinput";
 import Todolist from "./components/Todolist";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function App() {
-  // const todo_List = [
-  //   { input: "todo 1-v1", complete: true },
-  //   { input: "todo 2-v2", complete: false },
-  //   { input: "todo 3-v3", complete: true },
-  //   { input: "todo 4-v4", complete: false },
-  //   { input: "todo 5-v5", complete: true },
-  // ];
-
   const [todo_List, settodo_List] = useState([
     /*
     - this is an example of useState and how it is implemented
@@ -30,6 +22,7 @@ function App() {
     console.log("todo here");
     // settodo_list is used to update the already created use state to the newtodo array with new todo appended to it
     settodo_List(newTodoList);
+    savetodoappdata(newTodoList);
   }
   function handleEditTodo(index) {
     let newtodoedited = [...todo_List];
@@ -38,6 +31,7 @@ function App() {
     completedtodomodify["complete"] = true;
     newtodoedited[index] = completedtodomodify;
     settodo_List(newtodoedited);
+    savetodoappdata(newtodoedited);
   }
 
   function handleDeleteTodo(index) {
@@ -45,7 +39,18 @@ function App() {
       return valindex != index;
     });
     settodo_List(newtodoafterdeletion);
+    savetodoappdata(newtodoafterdeletion);
   }
+  function savetodoappdata(current) {
+    localStorage.setItem("todo-app", JSON.stringify({ todo_List: current }));
+  }
+  useEffect(() => {
+    if (!localStorage || !localStorage.getItem("todo-app")) {
+      return;
+    }
+    let db = JSON.parse(localStorage.getItem("todo-app"));
+    settodo_List(db.todo_List);
+  }, []);
   return (
     <>
       <Header todos={todo_List} />
